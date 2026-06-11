@@ -1,0 +1,553 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Linux Learning Garden</title>
+
+  <link rel="stylesheet" href="style.css"/>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="bg-shapes">
+  <div class="shape one"></div>
+  <div class="shape two"></div>
+  <div class="shape three"></div>
+</div>
+
+<header class="hero">
+
+  <nav>
+    <h1>🐧 Linux Learning Garden</h1>
+    <a href="#commands" class="btn">Start Learning</a>
+  </nav>
+
+  <div class="hero-content">
+
+    <div>
+      <h2>Learn Linux in a Cute & Aesthetic Way ✨</h2>
+
+      <p>
+        Master beginner Linux commands with colorful cards,
+        clean layouts, and easy explanations.
+      </p>
+
+      <a href="#basics" class="btn">Explore Basics</a>
+    </div>
+
+    <div class="terminal">
+      <p><span>$</span> pwd</p>
+      <p>/home/student</p>
+
+      <p><span>$</span> ls</p>
+      <p>Documents Downloads Music</p>
+
+      <p><span>$</span> echo "Hello Linux"</p>
+      <p>Hello Linux 🌸</p>
+    </div>
+
+  </div>
+</header>
+
+
+<section class="section" id="basics">
+
+  <h2>🌿 Why Learn Linux?</h2>
+
+  <div class="cards">
+
+    <div class="card">
+      <h3>💻 Used Everywhere</h3>
+
+      <p>
+        Linux powers servers, cloud systems,
+        Android phones, and supercomputers.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>☁️ Great for Cloud</h3>
+
+      <p>
+        Linux skills are essential for cloud support,
+        DevOps, and system administration.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>🚀 Fast & Powerful</h3>
+
+      <p>
+        Linux gives you control over files,
+        networking, servers, and automation.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="section pastel" id="commands">
+
+  <h2>📚 Basic Linux Commands</h2>
+
+  <div class="command-grid">
+
+    <div class="command-card">
+      <h3>pwd</h3>
+      <p>Shows your current folder location.</p>
+      <code>$ pwd</code>
+    </div>
+
+    <div class="command-card">
+      <h3>ls</h3>
+      <p>Lists files and folders.</p>
+      <code>$ ls</code>
+    </div>
+
+    <div class="command-card">
+      <h3>cd</h3>
+      <p>Changes directory.</p>
+      <code>$ cd Downloads</code>
+    </div>
+
+    <div class="command-card">
+      <h3>mkdir</h3>
+      <p>Creates a new folder.</p>
+      <code>$ mkdir linux_notes</code>
+    </div>
+
+    <div class="command-card">
+      <h3>touch</h3>
+      <p>Creates a new empty file.</p>
+      <code>$ touch notes.txt</code>
+    </div>
+
+    <div class="command-card">
+      <h3>rm</h3>
+      <p>Deletes files or folders.</p>
+      <code>$ rm notes.txt</code>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="section">
+
+  <h2>🌸 Beginner Learning Path</h2>
+
+  <div class="timeline">
+
+    <div class="step">
+      <span>1</span>
+      <p>Learn Linux navigation commands.</p>
+    </div>
+
+    <div class="step">
+      <span>2</span>
+      <p>Understand files and permissions.</p>
+    </div>
+
+    <div class="step">
+      <span>3</span>
+      <p>Practice networking commands.</p>
+    </div>
+
+    <div class="step">
+      <span>4</span>
+      <p>Move to cloud and server basics.</p>
+    </div>
+
+  </div>
+
+</section>
+
+<section class="section">
+
+  <h2>⭐ Skills You Will Learn</h2>
+
+  <div class="skills">
+
+    <div class="skill-card">
+      <h3>🐧 Linux</h3>
+      <div class="progress">
+        <div class="fill linux"></div>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <h3>☁️ Cloud</h3>
+      <div class="progress">
+        <div class="fill cloud"></div>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <h3>🌐 Networking</h3>
+      <div class="progress">
+        <div class="fill network"></div>
+      </div>
+    </div>
+
+  </div>
+
+</section> 
+<section class="quote">
+
+<h2><center>
+"Every Linux expert was once a beginner."
+</center></h2>
+
+</section>
+
+<footer>
+  <p>Made with 💖 for Linux Beginners</p>
+  <p>✨✨ By Aman kumar ✨✨ </p>
+</footer>
+
+<!-- =========================
+     CHATBOT START
+========================= -->
+
+<!-- CHAT BUTTON -->
+
+<div class="chat-toggle" onclick="toggleChat()">
+  💬
+</div>
+
+<!-- CHAT BOX -->
+
+<div class="chat-box" id="chatBox">
+
+  <!-- HEADER -->
+
+  <div class="chat-header">
+    Linux Helper Bot 🐧
+  </div>
+
+  <!-- CHAT BODY -->
+
+  <div class="chat-body" id="chatBody">
+
+    <div class="bot-message">
+      Hello 🌸 Ask me Linux commands!
+    </div>
+
+  </div>
+
+  <!-- INPUT AREA -->
+
+  <div class="chat-input">
+
+    <input
+      type="text"
+      id="userInput"
+      placeholder="Ask about Linux..."
+    >
+
+    <button onclick="sendMessage()">
+      Send
+    </button>
+
+  </div>
+
+</div>
+
+<!-- =========================
+     CHATBOT CSS
+========================= -->
+
+<style>
+
+/* CHAT BUTTON */
+
+.chat-toggle{
+  position:fixed;
+  bottom:25px;
+  right:25px;
+  width:65px;
+  height:65px;
+  background:#ff5ca8;
+  border-radius:50%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:28px;
+  cursor:pointer;
+  box-shadow:0 10px 25px rgba(0,0,0,0.2);
+  z-index:1000;
+  transition:0.3s;
+}
+
+.chat-toggle:hover{
+  transform:scale(1.1);
+}
+
+/* CHAT BOX */
+
+.chat-box{
+  position:fixed;
+  bottom:100px;
+  right:25px;
+  width:340px;
+  max-width:90%;
+  background:white;
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:0 15px 40px rgba(0,0,0,0.2);
+  display:none;
+  flex-direction:column;
+  z-index:1000;
+}
+
+/* HEADER */
+
+.chat-header{
+  background:linear-gradient(135deg,#ff5ca8,#ff87c5);
+  color:white;
+  padding:16px;
+  font-weight:bold;
+  text-align:center;
+  font-size:18px;
+}
+
+/* BODY */
+
+.chat-body{
+  height:320px;
+  padding:15px;
+  overflow-y:auto;
+  background:#fffafc;
+}
+
+/* BOT MESSAGE */
+
+.bot-message{
+  background:#ffe0ef;
+  padding:12px 15px;
+  border-radius:15px;
+  margin-bottom:12px;
+  width:fit-content;
+  max-width:80%;
+  animation:fadeIn 0.3s ease;
+}
+
+/* USER MESSAGE */
+
+.user-message{
+  background:#d7f8ff;
+  padding:12px 15px;
+  border-radius:15px;
+  margin-bottom:12px;
+  margin-left:auto;
+  width:fit-content;
+  max-width:80%;
+  animation:fadeIn 0.3s ease;
+}
+
+/* INPUT AREA */
+
+.chat-input{
+  display:flex;
+  border-top:1px solid #eee;
+}
+
+.chat-input input{
+  flex:1;
+  padding:14px;
+  border:none;
+  outline:none;
+  font-size:15px;
+}
+
+.chat-input button{
+  border:none;
+  background:#ff5ca8;
+  color:white;
+  padding:14px 18px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.chat-input button:hover{
+  background:#ff3d93;
+}
+
+/* ANIMATION */
+
+@keyframes fadeIn{
+
+  from{
+    opacity:0;
+    transform:translateY(10px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* MOBILE */
+
+@media(max-width:500px){
+
+  .chat-box{
+    width:90%;
+    right:5%;
+  }
+
+}
+
+</style>
+
+<!-- =========================
+     CHATBOT JAVASCRIPT
+========================= -->
+
+<script>
+
+/* OPEN CLOSE CHAT */
+
+function toggleChat(){
+
+  let chatBox = document.getElementById("chatBox");
+
+  if(chatBox.style.display === "flex"){
+
+    chatBox.style.display = "none";
+
+  }
+
+  else{
+
+    chatBox.style.display = "flex";
+
+  }
+}
+
+/* SEND MESSAGE */
+
+function sendMessage(){
+
+  let input = document.getElementById("userInput");
+
+  let message = input.value.toLowerCase();
+
+  let chatBody = document.getElementById("chatBody");
+
+  if(message.trim() === ""){
+    return;
+  }
+
+  /* USER MESSAGE */
+
+  let userDiv = document.createElement("div");
+
+  userDiv.className = "user-message";
+
+  userDiv.innerText = input.value;
+
+  chatBody.appendChild(userDiv);
+
+  /* BOT RESPONSE */
+
+  let botDiv = document.createElement("div");
+
+  botDiv.className = "bot-message";
+
+  /* LINUX ANSWERS */
+
+  if(message.includes("pwd")){
+
+    botDiv.innerText =
+    "pwd shows your current directory 📂";
+
+  }
+
+  else if(message.includes("ls")){
+
+    botDiv.innerText =
+    "ls lists files and folders 🌸";
+
+  }
+
+  else if(message.includes("cd")){
+
+    botDiv.innerText =
+    "cd changes folders 📁";
+
+  }
+
+  else if(message.includes("mkdir")){
+
+    botDiv.innerText =
+    "mkdir creates a new folder 🐧";
+
+  }
+
+  else if(message.includes("touch")){
+
+    botDiv.innerText =
+    "touch creates an empty file ✨";
+
+  }
+
+  else if(message.includes("rm")){
+
+    botDiv.innerText =
+    "rm deletes files or folders ⚠️";
+
+  }
+
+  else if(message.includes("linux")){
+
+    botDiv.innerText =
+    "Linux is a powerful open-source operating system 💻";
+
+  }
+
+  else if(message.includes("nginx")){
+
+    botDiv.innerText =
+    "Nginx is a fast web server used to host websites 🚀";
+
+  }
+
+  else{
+
+    botDiv.innerText =
+    "I'm still learning more Linux commands 🐧💖";
+
+  }
+
+  chatBody.appendChild(botDiv);
+
+  /* CLEAR INPUT */
+
+  input.value = "";
+
+  /* AUTO SCROLL */
+
+  chatBody.scrollTop = chatBody.scrollHeight;
+}
+
+</script>
+
+<!-- =========================
+     CHATBOT END
+========================= -->
+
+</body>
+</html> 
+
