@@ -339,3 +339,40 @@ animation:
       border-color:transparent;
       }
 }
+
+html{
+  scroll-behavior:smooth;
+}
+
+/* Floating terminal */
+.terminal{
+  animation:float 4s ease-in-out infinite;
+}
+
+@keyframes float{
+  0%{transform:translateY(0);}
+  50%{transform:translateY(-15px);}
+  100%{transform:translateY(0);}
+}
+
+/* Scroll animation */
+.card,
+.command-card,
+.step,
+.skill-card{
+  opacity:0;
+  transform:translateY(50px);
+  transition:all .8s ease;
+}
+
+.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* Hover effects */
+.card:hover,
+.command-card:hover,
+.skill-card:hover{
+  transform:translateY(-10px);
+}
