@@ -485,4 +485,166 @@
         <h4>// resources</h4>
         <ul>
           <li><a href="#commands">Command Reference</a></li>
-          <li><a href="#
+          <li><a href="#roadmap">Roadmap</a></li>
+          <li><a href="#tips">Daily Tips</a></li>
+          <li><a href="#paths">Learning Modules</a></li>
+          <li><a href="#home">Back to Top</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="glow-line"></div>
+    <br/>
+
+    <div class="footer-bottom">
+      <p>root@linux-garden:~$ <span class="green">echo "Keep learning, keep growing 🌱"</span></p>
+      <p>Hosted on Ubuntu 24.04 + Nginx · Built with ♥ by a Cloud Student</p>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ══════════════════════════════════════════
+     JAVASCRIPT
+══════════════════════════════════════════ -->
+<script>
+/* ── Typed terminal animation ── */
+const commands = [
+  'cd /var/log',
+  'tail -f syslog',
+  'grep "error" auth.log',
+  'systemctl restart nginx',
+  'df -h | grep /dev',
+  'ssh -i key.pem ec2-user@cloud',
+];
+let cmdIdx = 0, charIdx = 0, deleting = false, pauseTick = 0;
+const typedEl = document.getElementById('typed-output');
+
+function typeLoop() {
+  const current = commands[cmdIdx];
+
+  if (pauseTick > 0) { pauseTick--; setTimeout(typeLoop, 80); return; }
+
+  if (!deleting) {
+    typedEl.textContent = current.slice(0, charIdx + 1);
+    charIdx++;
+    if (charIdx === current.length) { deleting = true; pauseTick = 28; }
+    setTimeout(typeLoop, 75);
+  } else {
+    typedEl.textContent = current.slice(0, charIdx - 1);
+    charIdx--;
+    if (charIdx === 0) {
+      deleting = false;
+      cmdIdx = (cmdIdx + 1) % commands.length;
+      pauseTick = 8;
+    }
+    setTimeout(typeLoop, 38);
+  }
+}
+typeLoop();
+
+/* ── Scroll reveal ── */
+const reveals = document.querySelectorAll('.reveal');
+const roadmapItems = document.querySelectorAll('.roadmap-item');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+reveals.forEach(el => observer.observe(el));
+roadmapItems.forEach(el => observer.observe(el));
+
+/* ── Animated counters ── */
+const counters = document.querySelectorAll('[data-count]');
+const cObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    const el = e.target;
+    const target = parseInt(el.dataset.count);
+    let start = 0;
+    const step = Math.ceil(target / 40);
+    const tick = () => {
+      start = Math.min(start + step, target);
+      el.textContent = start + (target > 10 ? '+' : '');
+      if (start < target) requestAnimationFrame(tick);
+    };
+    tick();
+    cObserver.unobserve(el);
+  });
+}, { threshold: 0.5 });
+counters.forEach(el => cObserver.observe(el));
+
+/* ── Progress bars ── */
+const bars = document.querySelectorAll('.progress-fill');
+const bObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    const bar = e.target;
+    const pct = bar.dataset.width;
+    bar.style.width = pct + '%';
+    const label = bar.closest('.progress-wrap').querySelector('.pct');
+    if (label) label.textContent = pct + '%';
+    bObserver.unobserve(bar);
+  });
+}, { threshold: 0.3 });
+bars.forEach(bar => bObserver.observe(bar));
+
+/* ── Tips ── */
+const tips = [
+  {
+    cmd: "ctrl + r  →  reverse-i-search",
+    exp: "Press Ctrl+R in your terminal and start typing to search through your command history. It's the fastest way to recall long commands you've used before — essential for every Linux user."
+  },
+  {
+    cmd: "grep -r 'pattern' /var/log/",
+    exp: "Search recursively through log files for a specific string. Perfect for troubleshooting — combine with --include='*.log' to narrow results. Cloud support engineers live in /var/log."
+  },
+  {
+    cmd: "watch -n 2 'df -h'",
+    exp: "The 'watch' command reruns any command at a set interval (here, every 2 seconds). Use it to monitor disk space, CPU load, or network stats in real time — no need for a dashboard."
+  },
+  {
+    cmd: "ssh -L 8080:localhost:80 user@server",
+    exp: "SSH local port forwarding — tunnel remote port 80 to your local 8080. This is how you securely access web apps or admin panels on a remote server without opening firewall ports."
+  },
+  {
+    cmd: "tar -czf backup.tar.gz /etc/nginx/",
+    exp: "Create a compressed archive of your Nginx config. -c = create, -z = gzip compress, -f = filename. Unpack with 'tar -xzf'. Knowing tar is a Linux rite of passage."
+  },
+  {
+    cmd: "awk '{print $1}' /var/log/nginx/access.log | sort | uniq -c | sort -rn | head",
+    exp: "Pipeline magic — extract IP addresses from Nginx access logs, count occurrences, and show the top visitors. This kind of one-liner thinking is what separates admins from engineers."
+  },
+  {
+    cmd: "systemctl list-units --type=service --state=failed",
+    exp: "Instantly see every failed service on your system. The first command to run when something breaks. Pair it with 'journalctl -u servicename' to read the actual error logs."
+  },
+  {
+    cmd: "curl -sv https://example.com 2>&1 | grep -E '< HTTP|SSL|Connected'",
+    exp: "Debug HTTPS connections without a browser. -s = silent, -v = verbose. You'll see the TLS handshake, HTTP status code, and connection details — incredibly useful for cloud troubleshooting."
+  },
+];
+
+let tipIdx = 0;
+function renderTip() {
+  document.getElementById('tip-cmd').textContent = tips[tipIdx].cmd;
+  document.getElementById('tip-explain').textContent = tips[tipIdx].exp;
+  document.getElementById('tip-counter').textContent = `${tipIdx + 1} / ${tips.length}`;
+}
+document.getElementById('tip-next').addEventListener('click', () => {
+  tipIdx = (tipIdx + 1) % tips.length;
+  renderTip();
+});
+document.getElementById('tip-prev').addEventListener('click', () => {
+  tipIdx = (tipIdx - 1 + tips.length) % tips.length;
+  renderTip();
+});
+renderTip();
+</script>
+
+</body>
+</html>
