@@ -321,3 +321,21 @@ footer{
 .skill-card{
   transition:all 0.4s ease;
 } 
+.typing-title{
+overflow:hidden;
+white-space:nowrap;
+border-right:4x solid #ff5ca9;
+width:0;
+animation:
+    typing 4s steps(40,end) forwards,
+    blink 0.8s infinite;
+}
+@keyframes typing{
+    from{width:0;}
+    to{width:100%;}
+}
+@keyframes blink {
+  50%{
+      border-color:transparent;
+      }
+}
