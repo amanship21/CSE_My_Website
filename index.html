@@ -547,7 +547,34 @@ function sendMessage(){
 <!-- =========================
      CHATBOT END
 ========================= -->
+<script>
 
+const reveals = document.querySelectorAll(
+'.card,.command-card,.step,.skill-card'
+);
+
+function revealOnScroll(){
+
+  reveals.forEach(item=>{
+
+    const top = item.getBoundingClientRect().top;
+
+    if(top < window.innerHeight - 100){
+      item.classList.add("show");
+    }
+
+  });
+
+}
+
+window.addEventListener(
+"scroll",
+revealOnScroll
+);
+
+revealOnScroll();
+
+</script>
 </body>
 </html> 
 
