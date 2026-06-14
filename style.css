@@ -100,13 +100,13 @@ nav h1{
   color:#ff5ca8;
   font-size:2rem;
 }
-
 .hero-content{
   display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:50px;
-  align-items:center;
-  margin-top:50px;
+  grid-template-columns:minmax(300px,600px) minmax(300px,500px);
+  justify-content:center;
+  gap:40px;
+  margin-top:40px;
+}
 }
 
 .hero-content h2{
