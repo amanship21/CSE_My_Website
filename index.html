@@ -1,580 +1,488 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Linux Learning Garden</title>
-
-  <link rel="stylesheet" href="style.css"/>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Linux Learning Garden 🌿</title>
+  <meta name="description" content="Master Linux from the ground up. A terminal-first learning space for future Cloud & DevOps engineers." />
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
 
-<div class="bg-shapes">
-  <div class="shape one"></div>
-  <div class="shape two"></div>
-  <div class="shape three"></div>
+<!-- ══════════════════════════════════════════
+     NAVIGATION
+══════════════════════════════════════════ -->
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">
+      <span class="prompt">root@garden:~$</span>
+      <span>&nbsp;learn</span>
+      <span class="cursor"></span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#paths">./paths</a></li>
+      <li><a href="#commands">./commands</a></li>
+      <li><a href="#roadmap">./roadmap</a></li>
+      <li><a href="#tips">./tips</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+<!-- ══════════════════════════════════════════
+     HERO
+══════════════════════════════════════════ -->
+<section class="hero" id="home">
+  <div class="container">
+    <div class="hero-grid">
+
+      <!-- Left: Copy -->
+      <div>
+        <div class="hero-eyebrow fade-up">Cloud Engineering Starts Here</div>
+
+        <h1 class="fade-up fade-up-delay-1">
+          Linux<br/>
+          <span class="accent">Learning</span><br/>
+          <span class="accent-cyan">Garden</span>
+        </h1>
+
+        <p class="hero-desc fade-up fade-up-delay-2">
+          A hands-on, terminal-first space to grow from zero to Cloud Engineer.
+          Master the commands, the mindset, and the muscle memory — one keystroke at a time.
+        </p>
+
+        <div class="hero-cta fade-up fade-up-delay-3">
+          <a href="#paths" class="btn btn-primary">▶ Start Learning</a>
+          <a href="#roadmap" class="btn btn-outline">View Roadmap →</a>
+        </div>
+      </div>
+
+      <!-- Right: Terminal -->
+      <div class="terminal-window float">
+        <div class="terminal-bar">
+          <span class="t-dot red"></span>
+          <span class="t-dot yellow"></span>
+          <span class="t-dot green"></span>
+          <span class="terminal-title">student@linux-garden: ~</span>
+        </div>
+        <div class="terminal-body">
+          <span class="t-line">
+            <span class="t-prompt">student</span><span class="t-path">@linux-garden</span>
+            <span style="color:var(--text-mute)">:~$</span>
+            <span class="t-cmd"> whoami</span>
+          </span>
+          <span class="t-line t-out">future-cloud-engineer</span>
+          <span class="t-line">&nbsp;</span>
+
+          <span class="t-line">
+            <span class="t-prompt">student</span><span class="t-path">@linux-garden</span>
+            <span style="color:var(--text-mute)">:~$</span>
+            <span class="t-cmd"> uname -a</span>
+          </span>
+          <span class="t-line t-out">Linux garden 6.5.0 #1 SMP Ubuntu 24.04 x86_64</span>
+          <span class="t-line">&nbsp;</span>
+
+          <span class="t-line">
+            <span class="t-prompt">student</span><span class="t-path">@linux-garden</span>
+            <span style="color:var(--text-mute)">:~$</span>
+            <span class="t-cmd"> echo "Let's grow 🌱"</span>
+          </span>
+          <span class="t-line t-out">Let's grow 🌱</span>
+          <span class="t-line">&nbsp;</span>
+
+          <span class="t-line">
+            <span class="t-prompt">student</span><span class="t-path">@linux-garden</span>
+            <span style="color:var(--text-mute)">:~$</span>
+            &nbsp;<span id="typed-output"></span><span class="t-cursor"></span>
+          </span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     STATS BAR
+══════════════════════════════════════════ -->
+<div class="stats-bar">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <span class="stat-num" data-count="120">0</span>
+        <span class="stat-label">// core commands</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num" data-count="7">0</span>
+        <span class="stat-label">// learning modules</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num" data-count="40">0</span>
+        <span class="stat-label">// hands-on labs</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num" data-count="1">0</span>
+        <span class="stat-label">// goal: cloud engineer</span>
+      </div>
+    </div>
+  </div>
 </div>
 
-<header class="hero">
 
-  <nav>
-    <h1>🐧 Linux Learning Garden</h1>
-    <a href="#commands" class="btn">Start Learning</a>
-  </nav>
-
-  <div class="hero-content">
-
-    <div>
-      <h2>Learn Linux in a Cute & Aesthetic Way ✨</h2>
-
-      <p>
-        Master beginner Linux commands with colorful cards,
-        clean layouts, and easy explanations.
-      </p>
-
-      <a href="#basics" class="btn">Explore Basics</a>
+<!-- ══════════════════════════════════════════
+     LEARNING PATHS
+══════════════════════════════════════════ -->
+<section id="paths">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">// learning paths</div>
+      <h2>Choose Your <span style="color:var(--green)">Module</span></h2>
+      <p>Progress through structured modules designed to take you from first boot to cloud-ready engineer.</p>
     </div>
 
-    <div class="terminal">
-      <p><span>$</span> pwd</p>
-      <p>/home/student</p>
+    <div class="path-grid">
 
-      <p><span>$</span> ls</p>
-      <p>Documents Downloads Music</p>
+      <div class="path-card reveal">
+        <span class="card-icon">🌱</span>
+        <span class="card-badge badge-beginner">Beginner</span>
+        <h3>Shell Fundamentals</h3>
+        <p>Navigate the filesystem, manage files and permissions, and feel at home in any terminal.</p>
+        <div class="topic-tags">
+          <span class="tag">ls / cd / pwd</span>
+          <span class="tag">mkdir / rm</span>
+          <span class="tag">chmod</span>
+          <span class="tag">man pages</span>
+        </div>
+        <div class="progress-wrap" style="margin-top:20px">
+          <div class="progress-label">
+            <span>Progress</span><span class="pct">0%</span>
+          </div>
+          <div class="progress-track">
+            <div class="progress-fill" data-width="35"></div>
+          </div>
+        </div>
+      </div>
 
-      <p><span>$</span> echo "Hello Linux"</p>
-      <p>Hello Linux 🌸</p>
+      <div class="path-card reveal">
+        <span class="card-icon">🔐</span>
+        <span class="card-badge badge-beginner">Beginner</span>
+        <h3>Users & Permissions</h3>
+        <p>Understand Linux user model, groups, sudo, and file permission octal notation.</p>
+        <div class="topic-tags">
+          <span class="tag">useradd</span>
+          <span class="tag">sudo</span>
+          <span class="tag">chown</span>
+          <span class="tag">umask</span>
+        </div>
+        <div class="progress-wrap" style="margin-top:20px">
+          <div class="progress-label">
+            <span>Progress</span><span class="pct">0%</span>
+          </div>
+          <div class="progress-track">
+            <div class="progress-fill" data-width="20"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="path-card reveal">
+        <span class="card-icon">🔗</span>
+        <span class="card-badge badge-inter">Intermediate</span>
+        <h3>Networking Essentials</h3>
+        <p>Configure interfaces, inspect traffic, set up SSH, and troubleshoot connectivity like a pro.</p>
+        <div class="topic-tags">
+          <span class="tag">ip / ifconfig</span>
+          <span class="tag">ssh</span>
+          <span class="tag">netstat</span>
+          <span class="tag">curl</span>
+        </div>
+        <div class="progress-wrap" style="margin-top:20px">
+          <div class="progress-label">
+            <span>Progress</span><span class="pct">0%</span>
+          </div>
+          <div class="progress-track">
+            <div class="progress-fill" data-width="10"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="path-card reveal">
+        <span class="card-icon">⚙️</span>
+        <span class="card-badge badge-inter">Intermediate</span>
+        <h3>Process & System Management</h3>
+        <p>Monitor, control, and tune running processes. Understand systemd and service management.</p>
+        <div class="topic-tags">
+          <span class="tag">ps / top</span>
+          <span class="tag">systemctl</span>
+          <span class="tag">journalctl</span>
+          <span class="tag">cron</span>
+        </div>
+        <div class="progress-wrap" style="margin-top:20px">
+          <div class="progress-label">
+            <span>Progress</span><span class="pct">0%</span>
+          </div>
+          <div class="progress-track">
+            <div class="progress-fill" data-width="5"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="path-card reveal">
+        <span class="card-icon">📝</span>
+        <span class="card-badge badge-inter">Intermediate</span>
+        <h3>Shell Scripting & Automation</h3>
+        <p>Write Bash scripts that automate real tasks. Variables, loops, conditionals, and functions.</p>
+        <div class="topic-tags">
+          <span class="tag">bash</span>
+          <span class="tag">loops</span>
+          <span class="tag">functions</span>
+          <span class="tag">cron jobs</span>
+        </div>
+        <div class="progress-wrap" style="margin-top:20px">
+          <div class="progress-label">
+            <span>Progress</span><span class="pct">0%</span>
+          </div>
+          <div class="progress-track">
+            <div class="progress-fill" data-width="0"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="path-card reveal">
+        <span class="card-icon">☁️</span>
+        <span class="card-badge badge-advanced">Advanced</span>
+        <h3>Cloud &amp; DevOps Bridge</h3>
+        <p>Connect Linux skills to AWS/GCP/Azure CLI tools, Docker, Nginx, and cloud infrastructure.</p>
+        <div class="topic-tags">
+          <span class="tag">aws cli</span>
+          <span class="tag">docker</span>
+          <span class="tag">nginx</span>
+          <span class="tag">terraform</span>
+        </div>
+        <div class="progress-wrap" style="margin-top:20px">
+          <div class="progress-label">
+            <span>Progress</span><span class="pct">0%</span>
+          </div>
+          <div class="progress-track">
+            <div class="progress-fill" data-width="0"></div>
+          </div>
+        </div>
+      </div>
+
     </div>
-
   </div>
-</header>
-
-
-<section class="section" id="basics">
-
-  <h2>🌿 Why Learn Linux?</h2>
-
-  <div class="cards">
-
-    <div class="card">
-      <h3>💻 Used Everywhere</h3>
-
-      <p>
-        Linux powers servers, cloud systems,
-        Android phones, and supercomputers.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>☁️ Great for Cloud</h3>
-
-      <p>
-        Linux skills are essential for cloud support,
-        DevOps, and system administration.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>🚀 Fast & Powerful</h3>
-
-      <p>
-        Linux gives you control over files,
-        networking, servers, and automation.
-      </p>
-    </div>
-
-  </div>
-
 </section>
 
 
-<section class="section pastel" id="commands">
-
-  <h2>📚 Basic Linux Commands</h2>
-
-  <div class="command-grid">
-
-    <div class="command-card">
-      <h3>pwd</h3>
-      <p>Shows your current folder location.</p>
-      <code>$ pwd</code>
+<!-- ══════════════════════════════════════════
+     COMMAND CHEATSHEET
+══════════════════════════════════════════ -->
+<section id="commands" class="cheat-section">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">// quick reference</div>
+      <h2>Essential <span style="color:var(--cyan)">Commands</span></h2>
+      <p>The commands every Linux user needs to know — hover any row to highlight.</p>
     </div>
 
-    <div class="command-card">
-      <h3>ls</h3>
-      <p>Lists files and folders.</p>
-      <code>$ ls</code>
-    </div>
+    <div class="cheat-grid">
 
-    <div class="command-card">
-      <h3>cd</h3>
-      <p>Changes directory.</p>
-      <code>$ cd Downloads</code>
-    </div>
+      <!-- File System -->
+      <div class="cheat-card reveal">
+        <div class="cheat-header">
+          <span class="cheat-icon">📂</span>
+          <span class="cheat-title">File System Navigation</span>
+        </div>
+        <div class="cmd-list">
+          <div class="cmd-row"><span class="cmd-code">ls -la</span><span class="cmd-desc">list all files with details</span></div>
+          <div class="cmd-row"><span class="cmd-code">cd /path</span><span class="cmd-desc">change directory</span></div>
+          <div class="cmd-row"><span class="cmd-code">pwd</span><span class="cmd-desc">print working directory</span></div>
+          <div class="cmd-row"><span class="cmd-code">find / -name</span><span class="cmd-desc">search for files by name</span></div>
+          <div class="cmd-row"><span class="cmd-code">cp -r src dst</span><span class="cmd-desc">copy files recursively</span></div>
+          <div class="cmd-row"><span class="cmd-code">mv old new</span><span class="cmd-desc">move or rename a file</span></div>
+          <div class="cmd-row"><span class="cmd-code">rm -rf dir</span><span class="cmd-desc">force-remove directory ⚠️</span></div>
+        </div>
+      </div>
 
-    <div class="command-card">
-      <h3>mkdir</h3>
-      <p>Creates a new folder.</p>
-      <code>$ mkdir linux_notes</code>
-    </div>
+      <!-- Permissions -->
+      <div class="cheat-card reveal">
+        <div class="cheat-header">
+          <span class="cheat-icon">🔑</span>
+          <span class="cheat-title">Permissions &amp; Ownership</span>
+        </div>
+        <div class="cmd-list">
+          <div class="cmd-row"><span class="cmd-code">chmod 755 file</span><span class="cmd-desc">set rwxr-xr-x permissions</span></div>
+          <div class="cmd-row"><span class="cmd-code">chown user:grp</span><span class="cmd-desc">change owner and group</span></div>
+          <div class="cmd-row"><span class="cmd-code">sudo command</span><span class="cmd-desc">run as superuser</span></div>
+          <div class="cmd-row"><span class="cmd-code">su - user</span><span class="cmd-desc">switch user account</span></div>
+          <div class="cmd-row"><span class="cmd-code">groups</span><span class="cmd-desc">show current user groups</span></div>
+          <div class="cmd-row"><span class="cmd-code">id</span><span class="cmd-desc">show uid/gid info</span></div>
+          <div class="cmd-row"><span class="cmd-code">umask 022</span><span class="cmd-desc">set default file mask</span></div>
+        </div>
+      </div>
 
-    <div class="command-card">
-      <h3>touch</h3>
-      <p>Creates a new empty file.</p>
-      <code>$ touch notes.txt</code>
-    </div>
+      <!-- Networking -->
+      <div class="cheat-card reveal">
+        <div class="cheat-header">
+          <span class="cheat-icon">🌐</span>
+          <span class="cheat-title">Networking</span>
+        </div>
+        <div class="cmd-list">
+          <div class="cmd-row"><span class="cmd-code">ip a</span><span class="cmd-desc">show all interfaces</span></div>
+          <div class="cmd-row"><span class="cmd-code">ping host</span><span class="cmd-desc">test connectivity</span></div>
+          <div class="cmd-row"><span class="cmd-code">ssh user@host</span><span class="cmd-desc">remote shell login</span></div>
+          <div class="cmd-row"><span class="cmd-code">scp file u@h:</span><span class="cmd-desc">secure copy over SSH</span></div>
+          <div class="cmd-row"><span class="cmd-code">curl -I url</span><span class="cmd-desc">fetch HTTP headers</span></div>
+          <div class="cmd-row"><span class="cmd-code">netstat -tulnp</span><span class="cmd-desc">show listening ports</span></div>
+          <div class="cmd-row"><span class="cmd-code">ss -s</span><span class="cmd-desc">socket statistics summary</span></div>
+        </div>
+      </div>
 
-    <div class="command-card">
-      <h3>rm</h3>
-      <p>Deletes files or folders.</p>
-      <code>$ rm notes.txt</code>
-    </div>
+      <!-- System -->
+      <div class="cheat-card reveal">
+        <div class="cheat-header">
+          <span class="cheat-icon">🖥️</span>
+          <span class="cheat-title">System &amp; Processes</span>
+        </div>
+        <div class="cmd-list">
+          <div class="cmd-row"><span class="cmd-code">top / htop</span><span class="cmd-desc">live process monitor</span></div>
+          <div class="cmd-row"><span class="cmd-code">ps aux</span><span class="cmd-desc">list all running processes</span></div>
+          <div class="cmd-row"><span class="cmd-code">kill -9 PID</span><span class="cmd-desc">force-kill a process</span></div>
+          <div class="cmd-row"><span class="cmd-code">df -h</span><span class="cmd-desc">disk usage by filesystem</span></div>
+          <div class="cmd-row"><span class="cmd-code">free -m</span><span class="cmd-desc">RAM usage in megabytes</span></div>
+          <div class="cmd-row"><span class="cmd-code">systemctl status</span><span class="cmd-desc">check a service status</span></div>
+          <div class="cmd-row"><span class="cmd-code">journalctl -xe</span><span class="cmd-desc">view system log errors</span></div>
+        </div>
+      </div>
 
+    </div>
   </div>
-
 </section>
 
 
-<section class="section">
-
-  <h2>🌸 Beginner Learning Path</h2>
-
-  <div class="timeline">
-
-    <div class="step">
-      <span>1</span>
-      <p>Learn Linux navigation commands.</p>
+<!-- ══════════════════════════════════════════
+     ROADMAP
+══════════════════════════════════════════ -->
+<section id="roadmap">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">// your journey</div>
+      <h2>Cloud Engineer <span style="color:var(--green)">Roadmap</span></h2>
+      <p>A clear path from complete beginner to job-ready cloud support engineer.</p>
     </div>
 
-    <div class="step">
-      <span>2</span>
-      <p>Understand files and permissions.</p>
-    </div>
+    <div class="roadmap-timeline">
 
-    <div class="step">
-      <span>3</span>
-      <p>Practice networking commands.</p>
-    </div>
+      <div class="roadmap-item">
+        <div class="roadmap-node done">✓</div>
+        <div class="roadmap-content">
+          <div class="roadmap-phase">Phase 01 — Foundation</div>
+          <h3>Linux Basics &amp; Shell</h3>
+          <p>Get comfortable with the terminal. Learn navigation, file management, and basic commands.</p>
+        </div>
+      </div>
 
-    <div class="step">
-      <span>4</span>
-      <p>Move to cloud and server basics.</p>
-    </div>
+      <div class="roadmap-item">
+        <div class="roadmap-node">02</div>
+        <div class="roadmap-content">
+          <div class="roadmap-phase">Phase 02 — Administration</div>
+          <h3>Users, Packages &amp; Services</h3>
+          <p>Manage users, install packages with apt/yum, control services with systemd, and schedule tasks.</p>
+        </div>
+      </div>
 
+      <div class="roadmap-item">
+        <div class="roadmap-node">03</div>
+        <div class="roadmap-content">
+          <div class="roadmap-phase">Phase 03 — Networking</div>
+          <h3>Networking &amp; SSH</h3>
+          <p>Configure networking, set up key-based SSH auth, and understand firewalls with ufw/iptables.</p>
+        </div>
+      </div>
+
+      <div class="roadmap-item">
+        <div class="roadmap-node">04</div>
+        <div class="roadmap-content">
+          <div class="roadmap-phase">Phase 04 — Automation</div>
+          <h3>Bash Scripting</h3>
+          <p>Write scripts to automate real sysadmin tasks. Build your own toolbox of reusable utilities.</p>
+        </div>
+      </div>
+
+      <div class="roadmap-item">
+        <div class="roadmap-node">05</div>
+        <div class="roadmap-content">
+          <div class="roadmap-phase">Phase 05 — Web &amp; Cloud</div>
+          <h3>Nginx, Docker &amp; Cloud CLI</h3>
+          <p>Host web apps with Nginx on your VM, containerize with Docker, and interact with cloud providers via CLI.</p>
+        </div>
+      </div>
+
+      <div class="roadmap-item">
+        <div class="roadmap-node">06</div>
+        <div class="roadmap-content">
+          <div class="roadmap-phase">Phase 06 — Career</div>
+          <h3>Cloud Support Engineer 🎯</h3>
+          <p>Build projects, write documentation, and land your first role in cloud support or DevOps.</p>
+        </div>
+      </div>
+
+    </div>
   </div>
-
 </section>
 
-<section class="section">
 
-  <h2>⭐ Skills You Will Learn</h2>
+<!-- ══════════════════════════════════════════
+     TIP OF THE DAY
+══════════════════════════════════════════ -->
+<section id="tips" style="background: var(--bg-card); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">// daily practice</div>
+      <h2>Command <span style="color:var(--cyan)">Tips</span></h2>
+      <p>One tip at a time. Click through to build your command-line intuition.</p>
+    </div>
 
-  <div class="skills">
-
-    <div class="skill-card">
-      <h3>🐧 Linux</h3>
-      <div class="progress">
-        <div class="fill linux"></div>
+    <div class="tip-box reveal">
+      <div class="tip-label">
+        <span class="dot"></span>
+        <span>Tip of the Session</span>
+      </div>
+      <div class="tip-command" id="tip-cmd"></div>
+      <p class="tip-explain" id="tip-explain"></p>
+      <div class="tip-nav">
+        <button class="tip-btn" id="tip-prev">← Prev</button>
+        <button class="tip-btn" id="tip-next">Next →</button>
+        <span class="tip-counter" id="tip-counter"></span>
       </div>
     </div>
 
-    <div class="skill-card">
-      <h3>☁️ Cloud</h3>
-      <div class="progress">
-        <div class="fill cloud"></div>
-      </div>
-    </div>
-
-    <div class="skill-card">
-      <h3>🌐 Networking</h3>
-      <div class="progress">
-        <div class="fill network"></div>
-      </div>
-    </div>
-
   </div>
-
-</section> 
-<section class="quote">
-
-<h2><center>
-"Every Linux expert was once a beginner."
-</center></h2>
-
 </section>
 
+
+<!-- ══════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════ -->
 <footer>
-  <p>Made with 💖 for Linux Beginners</p>
-  <p>✨✨ By Aman kumar ✨✨ </p>
-</footer>
-
-<!-- =========================
-     CHATBOT START
-========================= -->
-
-<!-- CHAT BUTTON -->
-
-<div class="chat-toggle" onclick="toggleChat()">
-  💬
-</div>
-
-<!-- CHAT BOX -->
-
-<div class="chat-box" id="chatBox">
-
-  <!-- HEADER -->
-
-  <div class="chat-header">
-    Linux Helper Bot 🐧
-  </div>
-
-  <!-- CHAT BODY -->
-
-  <div class="chat-body" id="chatBody">
-
-    <div class="bot-message">
-      Hello 🌸 Ask me Linux commands!
-    </div>
-
-  </div>
-
-  <!-- INPUT AREA -->
-
-  <div class="chat-input">
-
-    <input
-      type="text"
-      id="userInput"
-      placeholder="Ask about Linux..."
-    >
-
-    <button onclick="sendMessage()">
-      Send
-    </button>
-
-  </div>
-
-</div>
-
-<!-- =========================
-     CHATBOT CSS
-========================= -->
-
-<style>
-
-/* CHAT BUTTON */
-
-.chat-toggle{
-  position:fixed;
-  bottom:25px;
-  right:25px;
-  width:65px;
-  height:65px;
-  background:#ff5ca8;
-  border-radius:50%;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  font-size:28px;
-  cursor:pointer;
-  box-shadow:0 10px 25px rgba(0,0,0,0.2);
-  z-index:1000;
-  transition:0.3s;
-}
-
-.chat-toggle:hover{
-  transform:scale(1.1);
-}
-
-/* CHAT BOX */
-
-.chat-box{
-  position:fixed;
-  bottom:100px;
-  right:25px;
-  width:340px;
-  max-width:90%;
-  background:white;
-  border-radius:20px;
-  overflow:hidden;
-  box-shadow:0 15px 40px rgba(0,0,0,0.2);
-  display:none;
-  flex-direction:column;
-  z-index:1000;
-}
-
-/* HEADER */
-
-.chat-header{
-  background:linear-gradient(135deg,#ff5ca8,#ff87c5);
-  color:white;
-  padding:16px;
-  font-weight:bold;
-  text-align:center;
-  font-size:18px;
-}
-
-/* BODY */
-
-.chat-body{
-  height:320px;
-  padding:15px;
-  overflow-y:auto;
-  background:#fffafc;
-}
-
-/* BOT MESSAGE */
-
-.bot-message{
-  background:#ffe0ef;
-  padding:12px 15px;
-  border-radius:15px;
-  margin-bottom:12px;
-  width:fit-content;
-  max-width:80%;
-  animation:fadeIn 0.3s ease;
-}
-
-/* USER MESSAGE */
-
-.user-message{
-  background:#d7f8ff;
-  padding:12px 15px;
-  border-radius:15px;
-  margin-bottom:12px;
-  margin-left:auto;
-  width:fit-content;
-  max-width:80%;
-  animation:fadeIn 0.3s ease;
-}
-
-/* INPUT AREA */
-
-.chat-input{
-  display:flex;
-  border-top:1px solid #eee;
-}
-
-.chat-input input{
-  flex:1;
-  padding:14px;
-  border:none;
-  outline:none;
-  font-size:15px;
-}
-
-.chat-input button{
-  border:none;
-  background:#ff5ca8;
-  color:white;
-  padding:14px 18px;
-  cursor:pointer;
-  transition:0.3s;
-}
-
-.chat-input button:hover{
-  background:#ff3d93;
-}
-
-/* ANIMATION */
-
-@keyframes fadeIn{
-
-  from{
-    opacity:0;
-    transform:translateY(10px);
-  }
-
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
-}
-
-/* MOBILE */
-
-@media(max-width:500px){
-
-  .chat-box{
-    width:90%;
-    right:5%;
-  }
-
-}
-
-</style>
-
-<!-- =========================
-     CHATBOT JAVASCRIPT
-========================= -->
-
-<script>
-
-/* OPEN CLOSE CHAT */
-
-function toggleChat(){
-
-  let chatBox = document.getElementById("chatBox");
-
-  if(chatBox.style.display === "flex"){
-
-    chatBox.style.display = "none";
-
-  }
-
-  else{
-
-    chatBox.style.display = "flex";
-
-  }
-}
-
-/* SEND MESSAGE */
-
-function sendMessage(){
-
-  let input = document.getElementById("userInput");
-
-  let message = input.value.toLowerCase();
-
-  let chatBody = document.getElementById("chatBody");
-
-  if(message.trim() === ""){
-    return;
-  }
-
-  /* USER MESSAGE */
-
-  let userDiv = document.createElement("div");
-
-  userDiv.className = "user-message";
-
-  userDiv.innerText = input.value;
-
-  chatBody.appendChild(userDiv);
-
-  /* BOT RESPONSE */
-
-  let botDiv = document.createElement("div");
-
-  botDiv.className = "bot-message";
-
-  /* LINUX ANSWERS */
-
-  if(message.includes("pwd")){
-
-    botDiv.innerText =
-    "pwd shows your current directory 📂";
-
-  }
-
-  else if(message.includes("ls")){
-
-    botDiv.innerText =
-    "ls lists files and folders 🌸";
-
-  }
-
-  else if(message.includes("cd")){
-
-    botDiv.innerText =
-    "cd changes folders 📁";
-
-  }
-
-  else if(message.includes("mkdir")){
-
-    botDiv.innerText =
-    "mkdir creates a new folder 🐧";
-
-  }
-
-  else if(message.includes("touch")){
-
-    botDiv.innerText =
-    "touch creates an empty file ✨";
-
-  }
-
-  else if(message.includes("rm")){
-
-    botDiv.innerText =
-    "rm deletes files or folders ⚠️";
-
-  }
-
-  else if(message.includes("linux")){
-
-    botDiv.innerText =
-    "Linux is a powerful open-source operating system 💻";
-
-  }
-
-  else if(message.includes("nginx")){
-
-    botDiv.innerText =
-    "Nginx is a fast web server used to host websites 🚀";
-
-  }
-
-  else{
-
-    botDiv.innerText =
-    "I'm still learning more Linux commands 🐧💖";
-
-  }
-
-  chatBody.appendChild(botDiv);
-
-  /* CLEAR INPUT */
-
-  input.value = "";
-
-  /* AUTO SCROLL */
-
-  chatBody.scrollTop = chatBody.scrollHeight;
-}
-
-</script>
-
-<!-- =========================
-     CHATBOT END
-========================= -->
-<script>
-
-const reveals = document.querySelectorAll(
-'.card,.command-card,.step,.skill-card'
-);
-
-function revealOnScroll(){
-
-  reveals.forEach(item=>{
-
-    const top = item.getBoundingClientRect().top;
-
-    if(top < window.innerHeight - 100){
-      item.classList.add("show");
-    }
-
-  });
-
-}
-
-window.addEventListener(
-"scroll",
-revealOnScroll
-);
-
-revealOnScroll();
-
-</script>
-</body>
-</html> 
-
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo-text">🌿 Linux Learning Garden</div>
+        <p>A terminal-first learning space built by a student, for students. Grow your Linux roots and branch into the cloud.</p>
+      </div>
+      <div class="footer-col">
+        <h4>// modules</h4>
+        <ul>
+          <li><a href="#paths">Shell Fundamentals</a></li>
+          <li><a href="#paths">Users &amp; Permissions</a></li>
+          <li><a href="#paths">Networking</a></li>
+          <li><a href="#paths">Shell Scripting</a></li>
+          <li><a href="#paths">Cloud Bridge</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>// resources</h4>
+        <ul>
+          <li><a href="#commands">Command Reference</a></li>
+          <li><a href="#
