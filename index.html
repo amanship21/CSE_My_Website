@@ -1565,6 +1565,29 @@ footer span { color: var(--green); }
       pgAppend(cmd, res);
     });
   </script>
+<button class="chat-toggle" onclick="toggleChat()">💬</button>
 
+<div class="chat-widget" id="chatWidget">
+
+  <div class="chat-header">
+    Aman AI Terminal
+  </div>
+
+  <div class="chat-body" id="chatBody">
+    <div class="chat-msg bot">
+      aman@linuxgarden:~$ Hello! Ask me Linux questions.
+    </div>
+  </div>
+
+  <div class="chat-input-area">
+    <input
+      type="text"
+      id="chatInput"
+      placeholder="Ask Aman..."
+    >
+    <button onclick="sendChat()">Send</button>
+  </div>
+
+</div>
 </body>
 </html>
