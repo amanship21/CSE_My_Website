@@ -1564,6 +1564,72 @@ footer span { color: var(--green); }
       if (res === '__clear__') { pgOutput.innerHTML = ''; return; }
       pgAppend(cmd, res);
     });
+function toggleChat(){
+  const box = document.getElementById("chatWidget");
+
+  if(box.style.display === "block"){
+    box.style.display = "none";
+  }else{
+    box.style.display = "block";
+  }
+}
+
+function sendChat(){
+
+  const input = document.getElementById("chatInput");
+  const body = document.getElementById("chatBody");
+
+  const text = input.value.trim();
+
+  if(!text) return;
+
+  body.innerHTML += `
+    <div class="chat-msg user">
+      user@garden:~$ ${text}
+    </div>
+  `;
+
+  let reply = "I don't know that command yet.";
+
+  const q = text.toLowerCase();
+
+  if(q.includes("linux")){
+    reply = "Linux is an open-source operating system kernel.";
+  }
+  else if(q.includes("pwd")){
+    reply = "pwd = Print Working Directory.";
+  }
+  else if(q.includes("ls")){
+    reply = "ls lists files and directories.";
+  }
+  else if(q.includes("grep")){
+    reply = "grep searches text patterns in files.";
+  }
+  else if(q.includes("chmod")){
+    reply = "chmod changes file permissions.";
+  }
+  else if(q.includes("ssh")){
+    reply = "SSH allows secure remote server access.";
+  }
+
+  setTimeout(()=>{
+    body.innerHTML += `
+      <div class="chat-msg bot">
+        aman@linuxgarden:~$ ${reply}
+      </div>
+    `;
+
+    body.scrollTop = body.scrollHeight;
+  },500);
+
+  input.value = "";
+}
+
+document.getElementById("chatInput").addEventListener("keydown",function(e){
+  if(e.key==="Enter"){
+    sendChat();
+  }
+});
   </script>
 <button class="chat-toggle" onclick="toggleChat()">💬</button>
 
